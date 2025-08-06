@@ -1,0 +1,36 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "cde5a553c04a7bf1c4c39ce7e21bb102"
+name = "shop-lynk-ai"
+handle = "shop-lynk-ai"
+application_url = "https://welsh-realized-detected-blood.trycloudflare.com"
+embedded = true
+
+[build]
+include_config_on_deploy = true
+automatically_update_urls_on_dev = true
+
+[webhooks]
+api_version = "2025-04"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products,write_script_tags"
+
+[auth]
+redirect_urls = [
+  "https://welsh-realized-detected-blood.trycloudflare.com/auth/callback",
+  "https://welsh-realized-detected-blood.trycloudflare.com/auth/shopify/callback",
+  "https://welsh-realized-detected-blood.trycloudflare.com/api/auth/callback"
+]
+
+[pos]
+embedded = false
